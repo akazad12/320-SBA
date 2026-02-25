@@ -1,5 +1,9 @@
 import { Routes,Route } from 'react-router-dom'
-import Navbar 
+
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
+import Saved from "./pages/Saved"
+import JobDetails from "./pages/JobDetails"
 import './App.css'
 
 function App() {
