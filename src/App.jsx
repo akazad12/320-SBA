@@ -1,8 +1,5 @@
 
-
 import { Routes,Route } from 'react-router-dom'
-
-import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 // import Saved from "./pages/Saved"
 // import newDetails from "./pages/newDetails"
@@ -12,7 +9,6 @@ function App() {
 
   return (
     <>
-    <Navbar />
     <Routes>
     <Route path = '/' element={<Home/>} />
     {/* <Route path = '/saved' element={<Saved/>} /> */}

@@ -1,26 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import newCard from "../components/newCard";
+import NewsCard from "../components/NewsCard";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [news, setnews] = useState([]);
+  const [news, setNews] = useState([]);
+  const [query, setQuery] = useState("");  
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
+  useEffect(() => {
     if (!searchTerm.trim()) return;
 
-    try {
-      const res = await axios.get(
-        `https://hn.algolia.com/api/v1/search?query=${searchTerm}&tags=story`
-      );
+    async function fetchNews() {
+      try {
+        const res = await axios.get(
+          `https://hn.algolia.com/api/v1/search_by_date?query=${searchTerm}&tags=story`
+        );
 
-      console.log(res.data);
-      setnews(res.data.hits); // 👈 Algolia uses "hits"
-    } catch (err) {
-      console.error(err.message);
+        setNews(res.data.hits);
+      } catch (err) {
+        console.error(err.message);
+      }
     }
+
+    fetchNews();
+  }, [query]); 
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setQuery(searchTerm);
+  
   }
 
   return (
@@ -38,8 +46,8 @@ function Home() {
       </form>
 
       <div>
-        {news.map((new) => (
-          <newCard key={new.objectID} new={new} />
+        {news.map((n) => (
+          <NewsCard key={n.objectID} n={n} />
         ))}
       </div>
     </div>
