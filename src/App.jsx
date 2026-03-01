@@ -5,7 +5,7 @@ import { Routes,Route } from 'react-router-dom'
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 // import Saved from "./pages/Saved"
-// import JobDetails from "./pages/JobDetails"
+// import newDetails from "./pages/newDetails"
 import './App.css'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <Routes>
     <Route path = '/' element={<Home/>} />
     {/* <Route path = '/saved' element={<Saved/>} /> */}
-    {/* <Route path = '/job/:id' element={<JobDetails/>} /> */}
+    {/* <Route path = '/new/:id' element={<newDetails/>} /> */}
     </Routes>
      
     </>
