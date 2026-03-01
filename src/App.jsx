@@ -12,7 +12,6 @@ function App() {
 
   return (
     <>
-    <h1>hellowordl</h1>
     <Navbar />
     <Routes>
     <Route path = '/' element={<Home/>} />
