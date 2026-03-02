@@ -1,58 +1,61 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import NewsCard from "../components/NewsCard";
 
-
-function New() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [news, setNews] = useState([]);
-  const [query, setQuery] = useState("");  
+function TopNews() {
+  const [stories, setStories] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!searchTerm.trim()) return;
-
-    async function fetchNews() {
+    async function fetchStories() {
       try {
         const res = await axios.get(
-          `https://hn.algolia.com/api/v1/search_by_date?query=${searchTerm}&tags=story`
+          "https://hacker-news.firebaseio.com/v0/topstories.json"
         );
 
-        setNews(res.data.hits);
+        const top20 = res.data.slice(0, 20);
+
+        const detailRequests = top20.map((id) =>
+          axios.get(
+            `https://hacker-news.firebaseio.com/v0/item/${id}.json`
+          )
+        );
+
+        const responses = await Promise.all(detailRequests);
+
+        const storyData = responses.map((res) => res.data);
+
+        setStories(storyData);
       } catch (err) {
-        console.error(err.message);
+        console.error(err);
+        setError("Failed to load stories");
       }
     }
 
-    fetchNews();
-  }, [query]); 
+    fetchStories();
+  }, []);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setQuery(searchTerm);
-  
-  }
+  if (error) return <h2>{error}</h2>;
 
   return (
-    <div className="home">
-      <h1>Search Hacker News</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>Top Hacker News Stories</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search Hacker News..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      <div>
-        {news.map((n) => (
-          <NewsCard key={n.objectID} n={n} />
-        ))}
-      </div>
+      {stories.map((story) => (
+        <div key={story.id} style={{ marginBottom: "20px" }}>
+          <a
+            href={story.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>{story.title}</h3>
+          </a>
+          <p>
+            {story.score} points by {story.by}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default New;
+export default TopNews;

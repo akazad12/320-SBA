@@ -1,13 +1,16 @@
 import {NavLink } from 'react-router-dom'
+import "./NavBar.css"
 
 export default function Navbar(){
     return (
-        <nav>
-            <h1>Hacker News</h1>
-            <div>
-                <NavLink to= '/'>Top</NavLink>
+        <nav className = "navbar">
+            <h1 className = "navbar-logo">Hacker News</h1>
+            <div className = "navbar-links">
+                <NavLink to= '/top'>Top</NavLink>
                 <NavLink to= '/new'>New</NavLink>
                 <NavLink to= '/old'>Old</NavLink>
+                <NavLink to= '/'>SearchTopic</NavLink>
+                <NavLink ></NavLink>
 
             </div>
         </nav>

@@ -1,11 +1,9 @@
 
 import { Routes,Route, BrowserRouter } from 'react-router-dom'
 import Navbar from "./components/NavBar.jsx"
-import New from "./pages/New"
-// import Top from "./pages/Top"
+import New from "./pages/SearchTopic.jsx"
+import Top from "./pages/Top.jsx"
 // import Old from "./pages/Old"
-// import Saved from "./pages/Saved"
-// import newDetails from "./pages/newDetails"
 import './App.css'
 
 function App() {
@@ -14,9 +12,9 @@ function App() {
     <BrowserRouter>
     <Navbar />
     <Routes>
-    <Route path = '/new' element={<New/>} />
-    {/* <Route path = '/top' element={<Top/>} /> 
-    <Route path = '/old' element={<Old/>} /> */}
+    <Route path = '/' element={<New/>} />
+    <Route path = '/Top' element={<Top/>} /> 
+    {/* <Route path = '/Old' element={<Old/>} /> */}
     </Routes>
      
     </BrowserRouter>

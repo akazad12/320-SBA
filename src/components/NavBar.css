@@ -1,0 +1,54 @@
+/* Remove default browser spacing */
+body {
+  margin: 0;
+}
+
+/* Full-width navbar */
+.navbar {
+  width: 100%;
+  position: fixed;      /* Sticks to top */
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #ff6600;
+  padding: 0 2rem;
+  height: 60px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+   margin-right: .5rem
+}
+
+.navbar-links a:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.navbar-links a.active {
+  border-bottom: 2px solid white;
+  padding-bottom: 4px;
+}
