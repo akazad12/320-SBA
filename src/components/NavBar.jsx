@@ -8,7 +8,7 @@ export default function Navbar(){
             <div className = "navbar-links">
                 <NavLink to= '/top'>Top</NavLink>
                 <NavLink to= '/new'>New</NavLink>
-                <NavLink to= '/old'>Old</NavLink>
+                <NavLink to= '/best'>Best</NavLink>
                 <NavLink to= '/'>SearchTopic</NavLink>
                 <NavLink ></NavLink>
 
