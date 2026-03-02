@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import NewsCard from "../components/NewsCard";
-import Navbar from "./components/Navbar";
 
-function Home() {
+
+function New() {
   const [searchTerm, setSearchTerm] = useState("");
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState("");  
@@ -55,4 +55,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default New;
