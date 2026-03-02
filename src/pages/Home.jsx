@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import NewsCard from "../components/NewsCard";
+import Navbar from "./components/Navbar";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
