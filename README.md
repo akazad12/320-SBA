@@ -1,16 +1,60 @@
-# React + Vite
+# 320-SBA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This project is a React-based web application that allows users to browse and search Hacker News articles. It fetches live data from the Hacker News API and displays article information in a clean card layout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Users can:
+- View top news stories
+- Search for specific topics
+- See article titles, likes (points), and publication dates
+- Click links to read the full articles
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How It Works
 
-## Expanding the ESLint configuration
+- The app makes API requests to the Hacker News API.
+- Article data is stored in React state.
+- Each article is displayed using a reusable `NewsCard` component.
+- Dates are formatted using `date-fns`.
+- Epoch timestamps are converted into readable date formats.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## How to Run the Project
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/akazad12/320-SBA.git
+   ```
+
+2. Navigate into the project folder:
+   ```bash
+   cd 320-SBA
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and go to:
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+## Technologies Used
+
+- React
+- Vite
+- Axios
+- date-fns
+- Hacker News API
