@@ -1,5 +1,7 @@
 # 320-SBA
 
+## Netify Link: https://aesthetic-brigadeiros-43feb4.netlify.app/
+
 ## Project Overview
 
 This project is a React-based web application that allows users to browse and search Hacker News articles. It fetches live data from the Hacker News API and displays article information in a clean card layout.
