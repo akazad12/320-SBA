@@ -47,8 +47,8 @@ function Search() {
       </form>
 
       <div>
-        {news.map((n) => (
-          <NewsCard key={n.objectID} n={n} />
+        {news.map((t) => (
+          <NewsCard key={t.objectID} n={t} />
         ))}
       </div>
     </div>

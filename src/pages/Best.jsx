@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import NewsCard from "../components/NewsCard";
 
 function Best() {
   const [stories, setStories] = useState([]);
@@ -38,21 +39,13 @@ function Best() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Best Hacker News Stories</h1>
+    <div>
+        {stories.map((n) => (
+          <NewsCard key={n.id} n={n} />
 
-      {stories.map((story) => (
-        <div key={story.id} style={{ marginBottom: "20px" }}>
-          <a
-            href={story.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h3>{story.title}</h3>
-          </a>
-          <p>
-            {story.score} points by {story.by}
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
+      
     </div>
   );
 }
